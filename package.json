@@ -1,0 +1,24 @@
+{
+  "name": "nextonfirebase",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "install": "yarn build-all",
+    "next": "yarn build-firebase && cd \"src/app\" && yarn && yarn dev",
+    "preserve": "yarn build-all",
+    "serve": "firebase serve",
+    "predeploy": "yarn build-all",
+    "deploy": "firebase deploy",
+    "build-all": "yarn build-next && yarn build-firebase",
+    "build-next": "cd \"src/app\" && yarn && yarn build",
+    "prebuild-firebase": "yarn run package-functions",
+    "build-firebase": "cd \"src/functions\" && yarn",
+    "prepackage-functions": "rimraf src/functions",
+    "package-functions": "babel 'src/src_functions' --out-dir 'src/functions' --presets=es2015 --copy-files --ignore 'node_modules'"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "rimraf": "^2.6.1"
+  }
+}
