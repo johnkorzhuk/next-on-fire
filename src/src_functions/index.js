@@ -10,6 +10,11 @@ export const helloWorld = functions.https.onRequest((req, res) => {
   res.status(200).send(`Hello ${world}`);
 });
 
+export const helloWorld2 = functions.https.onRequest((req, res) => {
+  const world = `!!!!!!!!`;
+  res.status(200).send(`Hello ${world}`);
+});
+
 export const nextJS = functions.https.onRequest((req, res) => {
   console.log('File: ' + req.originalUrl); // log the page.js file that is being requested
   return app.prepare().then(() => handle(req, res));
